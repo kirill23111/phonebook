@@ -19,4 +19,22 @@ class PhoneBookTest {
         int size = book.add("Bob", "222");
         assertEquals(2, size);
     }
+
+    @Test
+    void findByNumberReturnsCorrectName() {
+        PhoneBook book = new PhoneBook();
+        book.add("Alice", "111");
+        book.add("Bob", "222");
+
+        assertEquals("Alice", book.findByNumber("111"));
+        assertEquals("Bob", book.findByNumber("222"));
+    }
+
+    @Test
+    void findByNumberReturnsNullIfNotFound() {
+        PhoneBook book = new PhoneBook();
+        book.add("Alice", "111");
+
+        assertNull(book.findByNumber("999"));
+    }
 }

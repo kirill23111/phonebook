@@ -37,4 +37,21 @@ class PhoneBookTest {
 
         assertNull(book.findByNumber("999"));
     }
+    @Test
+    void findByNameReturnsCorrectNumber() {
+        PhoneBook book = new PhoneBook();
+        book.add("Alice", "111");
+        book.add("Bob", "222");
+
+        assertEquals("111", book.findByName("Alice"));
+        assertEquals("222", book.findByName("Bob"));
+    }
+
+    @Test
+    void findByNameReturnsNullIfNotFound() {
+        PhoneBook book = new PhoneBook();
+        book.add("Alice", "111");
+
+        assertNull(book.findByName("Charlie"));
+    }
 }

@@ -22,6 +22,8 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
-        // заглушка
+        for (String name : nameToNumber.keySet()) {
+            System.out.println(name);
+        }
     }
 }
